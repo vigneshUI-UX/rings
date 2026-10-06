@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #a8cacd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #333;
+}
+
+.title {
+  font-size: 2.8rem;
+  letter-spacing: 4px;
+  font-weight: 500;
+  color: #111;
+}
+/* Collection View Layout */
+.collection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* Wrapper with wider bounds and horizontal scrolling fallback for smaller screens */
+.cards-fan-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 380px;
+  width: 100%;
+  max-width: 1400px; /* Constrains total width on ultra-wide screens */
+  padding: 0 60px;   /* Extra edge padding */
+}
+
+.fan-card {
+  position: absolute;
+  cursor: pointer;
+}
+
+/* Card inner sizing */
+.card-inner {
+  width: 175px; /* Scaled slightly to fit comfortably with wider gaps */
+  height: 240px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px;
+}
+.card-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.footer-note {
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.detail-container {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-btn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+}
+
+.detail-content {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.stacked-deck {
+  position: relative;
+  width: 280px;
+  height: 340px;
+  cursor: pointer;
+}
+
+.stack-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stack-2 {
+  transform: translate(12px, 0px) scale(0.96);
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.stack-3 {
+  transform: translate(24px, 0px) scale(0.92);
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.active-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  z-index: 2;
+}
+
+.detail-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+/* Product Info Panel - Locked Left Alignment */
+.info-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Forces all elements to pin to the left edge */
+  justify-content: center;
+  gap: 15px;
+  width: 280px;  /* Fixed container width */
+  min-width: 280px;
+}
+
+.product-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #222;
+  margin: 0;
+  text-align: left;
+}
+
+.product-price {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #111;
+  margin: 0;
+  text-align: left;
+}
+
+/* Fixed-size button using Grid centering to prevent layout shift */
+.cart-btn {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  
+  /* Use Grid to pin inner content rigidly */
+  display: grid;
+  place-items: center;
+  
+  width: 190px;
+  height: 46px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+.cart-btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.cart-btn.added {
+  background: #111;
+  color: #fff;
+}
